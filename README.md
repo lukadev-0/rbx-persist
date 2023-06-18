@@ -5,7 +5,7 @@
 Simple data store library
 </p>
 <p>
-<a href="https://lukadev-0.github.io/rbx-ersist">Documentation</a>
+<a href="https://lukadev-0.github.io/rbx-persist">Documentation</a>
 </p>
 
 </div>
