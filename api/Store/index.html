@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v2.3.1">
+<title data-rh="true">Store | Persist</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://lukadev-0.github.io/rbx-persist/api/Store"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="Store | Persist"><meta data-rh="true" name="description" content="Stores a collection of data."><meta data-rh="true" property="og:description" content="Stores a collection of data."><link data-rh="true" rel="canonical" href="https://lukadev-0.github.io/rbx-persist/api/Store"><link data-rh="true" rel="alternate" href="https://lukadev-0.github.io/rbx-persist/api/Store" hreflang="en"><link data-rh="true" rel="alternate" href="https://lukadev-0.github.io/rbx-persist/api/Store" hreflang="x-default"><link rel="stylesheet" href="/rbx-persist/assets/css/styles.a5aeb1da.css">
+<link rel="preload" href="/rbx-persist/assets/js/runtime~main.fa2573f6.js" as="script">
+<link rel="preload" href="/rbx-persist/assets/js/main.fadea375.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/rbx-persist/"><b class="navbar__title text--truncate">Persist</b></a><a class="navbar__item navbar__link" href="/rbx-persist/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rbx-persist/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/lukadev-0/rbx-persist" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Press S to Search..." aria-label="Search" class="navbar__search-input search-bar"></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/rbx-persist/api/Persist">​Persist</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/rbx-persist/api/Session">​Session</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/rbx-persist/api/Store">​Store</a></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">Store</span></h1><div class="luaClassTags_EipM"></div><div>
+<p>Stores a collection of data.</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="types">Types<a href="#types" class="hash-link" aria-label="Direct link to Types" title="Direct link to Types">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="StoreOptions&lt;TKey, TData&gt;"><code style="text-decoration:none">StoreOptions&lt;TKey, TData&gt;</code><a href="#StoreOptions&lt;TKey, TData&gt;" class="hash-link" aria-label="Direct link to StoreOptions&lt;TKey, TData&gt;" title="Direct link to StoreOptions&lt;TKey, TData&gt;">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L26"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code class="purple_ieR2">interface</code> <code>StoreOptions&lt;TKey, TData&gt;<!-- --> <!-- -->{</code><div class="inset_uKQm"><div><code>dataStore<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/GlobalDataStore" target="_blank" rel="noopener noreferrer">GlobalDataStore?<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The <a href="https://developer.roblox.com/en-us/api-reference/class/GlobalDataStore" target="_blank">GlobalDataStore</a> to use, defaults to the data store with the name of the store</p>
+</span></span></div><div><code>lockId<!-- -->: </code><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The ID to use for locking, this should be unique per server, defaults to <a href="/rbx-persist/api/Store#defaultLockId">Store.defaultLockId</a></p>
+</span></span></div><div><code>key<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">string</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code><span class="inlineDescription_G7Er">-- <span>
+<p>A function that takes a key and returns a string key for the data store, this is not needed if the key is a string</p>
+</span></span></div><div><code>data<!-- -->: </code><code class="purple_ieR2">(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">TData</code><span class="inlineDescription_G7Er">-- <span>
+<p>A function that takes a key and returns the data to store in the data store</p>
+</span></span></div><div><code>default<!-- -->: </code><code class="purple_ieR2">(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">TData</code><span class="inlineDescription_G7Er">-- <span>
+<p>A function that takes a key and returns the default data</p>
+</span></span></div><div><code>metadata<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="green_DgR4">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="green_DgR4">}</code><code class="blue_P4bS">?</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code><span class="inlineDescription_G7Er">-- <span>
+<p>A function that takes a key and returns the <a href="https://create.roblox.com/docs/scripting/data/data-stores#metadata" target="_blank">metadata</a></p>
+</span></span></div><div><code>userIds<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="green_DgR4">{</code><code class="blue_P4bS">number</code><code class="green_DgR4">}</code><code class="blue_P4bS">?</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code><span class="inlineDescription_G7Er">-- <span>
+<p>A function that takes a key and returns an array of user ids associated with the key</p>
+</span></span></div><div><code>releaseSessionsOnClose<!-- -->: </code><code class="blue_P4bS">boolean?</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether or not to release all sessions when the server closes, defaults to true</p>
+</span></span></div><div><code>autosaveSeconds<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>How many seconds between autosave cycles, set to -1 to disable autosaves, defaults to 30</p>
+</span></span></div></div><code>}</code></div><div>
+<p>The options for the <a href="/rbx-persist/api/Store">Store</a></p>
+</div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="defaultLockId"><code style="text-decoration:none">defaultLockId</code><a href="#defaultLockId" class="hash-link" aria-label="Direct link to defaultLockId" title="Direct link to defaultLockId">​</a></h3><span class="docTag__6UZ" style="border-color:#dc0073;color:#dc0073">static</span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L53"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->.<!-- -->defaultLockId<!-- -->:<!-- --> </code> <code class="blue_P4bS">string</code></div><div>
+<p>
+  The default <a href="/rbx-persist/api/Store#lockId">Store.lockId</a>.
+  This defaults to a random GUID such as <code>ff97f92b48a5472d96463ecf64c32866</code>.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="datastore"><code style="text-decoration:none">datastore</code><a href="#datastore" class="hash-link" aria-label="Direct link to datastore" title="Direct link to datastore">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L60"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->.<!-- -->datastore<!-- -->:<!-- --> </code> <code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/GlobalDataStore" target="_blank" rel="noopener noreferrer">GlobalDataStore<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div><div>
+<p>The underlying data store used.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="lockId"><code style="text-decoration:none">lockId</code><a href="#lockId" class="hash-link" aria-label="Direct link to lockId" title="Direct link to lockId">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L67"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->.<!-- -->lockId<!-- -->:<!-- --> </code> <code class="blue_P4bS">string</code></div><div>
+<p>
+  A string that should be unique per server, this will be used for session locking.
+  This defaults to <a href="/rbx-persist/api/Store#defaultLockId">Store.defaultLockId</a>.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="name"><code style="text-decoration:none">name</code><a href="#name" class="hash-link" aria-label="Direct link to name" title="Direct link to name">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L73"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->.<!-- -->name<!-- -->:<!-- --> </code> <code class="blue_P4bS">string</code></div><div>
+<p>The name of the store.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="sessions"><code style="text-decoration:none">sessions</code><a href="#sessions" class="hash-link" aria-label="Direct link to sessions" title="Direct link to sessions">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L79"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->.<!-- -->sessions<!-- -->:<!-- --> </code> <code class="purple_ieR2">{</code><div class="inset_uKQm"><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rbx-persist/api/Session">Session</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">TKey</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">TData</code><code class="op_lSLc">&gt;</code></div><code class="purple_ieR2">}</code></div><div>
+<p>The sessions that are loaded. The key is the <a href="Store#getKey">string key</a> of the session.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="sessionReleased"><code style="text-decoration:none">sessionReleased</code><a href="#sessionReleased" class="hash-link" aria-label="Direct link to sessionReleased" title="Direct link to sessionReleased">​</a></h3><span class="docTag__6UZ" style="border-color:#2b8ab6;color:#2b8ab6">Signal</span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L95"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->.<!-- -->sessionReleased<!-- -->:<!-- --> </code> <code class="blue_P4bS">Signal</code><code class="op_lSLc">&lt;</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rbx-persist/api/Session">Session</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">TKey,</code><code class="blue_P4bS">TData</code><code class="op_lSLc">&gt;</code><code class="blue_P4bS">,</code><code class="blue_P4bS">boolean</code><code class="op_lSLc">&gt;</code></div><div>
+<p>Fired whenever a session in the store has been released.</p>
+<p>
+  The <a href="/rbx-persist/api/Session">Session</a> that released is given as first parameter. The second parameter
+  is a boolean containing whether the data was saved or not (see <a href="/rbx-persist/api/Session#released">Session.released</a>).
+</p>
+<pre class="language-lua"><code class="language-lua">store<span class="token punctuation">.</span>sessionReleased<span class="token punctuation">:</span><span class="token function">Connect</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>session<span class="token punctuation">,</span> didSave<span class="token punctuation">)</span>
+	<span class="token function">print</span><span class="token punctuation">(</span>`Session <span class="token string">"{session.keyStr}"</span> has been released! didSave<span class="token punctuation">:</span> <span class="token punctuation">{</span>didSave<span class="token punctuation">}</span>`<span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+</code></pre>
+</div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="new"><code style="text-decoration:none">new</code><a href="#new" class="hash-link" aria-label="Direct link to new" title="Direct link to new">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L147"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->.</code><code class="green_DgR4">new</code><code>(</code><div class="inset_uKQm"><div><code>name<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The name of the store</p>
+</span></span></div><div><code>options<!-- -->: </code><code class="blue_P4bS">StoreOptions</code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">TKey,</code><code class="blue_P4bS">TData</code><code class="op_lSLc">&gt;</code><span class="inlineDescription_G7Er">-- <span>
+<p>Options for the store</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rbx-persist/api/Store">Store</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">TKey,</code><code class="blue_P4bS">TData</code><code class="op_lSLc">&gt;</code></div><div>
+<p>Creates a store with the given name.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getKey"><code style="text-decoration:none">getKey</code><a href="#getKey" class="hash-link" aria-label="Direct link to getKey" title="Direct link to getKey">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L221"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->:</code><code class="green_DgR4">getKey</code><code>(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code>) → </code><code class="blue_P4bS">string</code></div><div>
+<p>Gets the string key used in the datastore.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getData"><code style="text-decoration:none">getData</code><a href="#getData" class="hash-link" aria-label="Direct link to getData" title="Direct link to getData">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L241"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->:</code><code class="green_DgR4">getData</code><code>(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code>) → </code><code class="blue_P4bS">TData</code></div><div>
+<p>Gets the data to store in the datastore.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getDefault"><code style="text-decoration:none">getDefault</code><a href="#getDefault" class="hash-link" aria-label="Direct link to getDefault" title="Direct link to getDefault">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L253"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->:</code><code class="green_DgR4">getDefault</code><code>(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code>) → </code><code class="blue_P4bS">TData</code></div><div>
+<p>Gets the default data to store in the datastore.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getMetadata"><code style="text-decoration:none">getMetadata</code><a href="#getMetadata" class="hash-link" aria-label="Direct link to getMetadata" title="Direct link to getMetadata">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L265"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->:</code><code class="green_DgR4">getMetadata</code><code>(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code class="blue_P4bS">?</code></div><div>
+<p>Gets the metadata to store in the datastore.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getUserIds"><code style="text-decoration:none">getUserIds</code><a href="#getUserIds" class="hash-link" aria-label="Direct link to getUserIds" title="Direct link to getUserIds">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L280"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->:</code><code class="green_DgR4">getUserIds</code><code>(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code class="blue_P4bS">?</code></div><div>
+<p>Gets the user ids to store in the datastore.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getSession"><code style="text-decoration:none">getSession</code><a href="#getSession" class="hash-link" aria-label="Direct link to getSession" title="Direct link to getSession">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L295"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->:</code><code class="green_DgR4">getSession</code><code>(</code><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rbx-persist/api/Session">Session</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">TKey,</code><code class="blue_P4bS">TData</code><code class="op_lSLc">&gt;</code><code class="blue_P4bS">?</code></div><div>
+<p>Gets an existing session using the key.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="load"><code style="text-decoration:none">load</code><a href="#load" class="hash-link" aria-label="Direct link to load" title="Direct link to load">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/lukadev-0/rbx-persist/blob/master/lib/Store.luau#L325"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Store<!-- -->:</code><code class="green_DgR4">load</code><code>(</code><div class="inset_uKQm"><div><code>key<!-- -->: </code><code class="blue_P4bS">TKey</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The key to load</p>
+</span></span></div><div><code>onSessionLocked<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">&quot;requestRelease&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;steal&quot;</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>What to do if the session is locked</p>
+</span></span></div><div><code>default<!-- -->: </code><code class="blue_P4bS">TData?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The default value to use, overwrites [StoreOptions.default]</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">Promise</code><code class="op_lSLc">&lt;</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rbx-persist/api/Session">Session</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">TData,</code><code class="blue_P4bS">TKey</code><code class="op_lSLc">&gt;</code><code class="op_lSLc">&gt;</code></div><div>
+<p>Attempts to load the session with the given key.</p>
+<p>The <code>onSessionLocked</code> parameter specifies what to do if the session is locked:</p>
+<ul>
+  <li>
+    <p>
+      <code>"requestRelease"</code>: This will repeatedly try to load the session and also tells the server that locked
+      the session to release the session, saving all the data and removing the lock.
+    </p>
+  </li>
+  <li>
+    <p><code>"steal"</code>: This will steal the lock, overwriting the existing lock.</p>
+  </li>
+</ul>
+<div class="admonition admonition-caution alert alert--warning">
+  <div class="admonition-heading">
+    <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+        </svg></span>Data Loss</h5>
+  </div>
+  <div class="admonition-content">
+    <p>
+      Using <code>"steal"</code> might cause data loss because the other server has no chance to
+      save the data!
+    </p>
+  </div>
+</div>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;new&quot;,
+            &quot;desc&quot;: &quot;Creates a store with the given name.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;name&quot;,
+                    &quot;desc&quot;: &quot;The name of the store&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;options&quot;,
+                    &quot;desc&quot;: &quot;Options for the store&quot;,
+                    &quot;lua_type&quot;: &quot;StoreOptions&lt;TKey, TData&gt;&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Store&lt;TKey, TData&gt;\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 147,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getKey&quot;,
+            &quot;desc&quot;: &quot;Gets the string key used in the datastore.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;TKey&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 221,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getData&quot;,
+            &quot;desc&quot;: &quot;Gets the data to store in the datastore.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;TKey&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;TData&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 241,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getDefault&quot;,
+            &quot;desc&quot;: &quot;Gets the default data to store in the datastore.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;TKey&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;TData&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 253,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getMetadata&quot;,
+            &quot;desc&quot;: &quot;Gets the metadata to store in the datastore.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;TKey&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 265,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getUserIds&quot;,
+            &quot;desc&quot;: &quot;Gets the user ids to store in the datastore.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;TKey&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ number }?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 280,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getSession&quot;,
+            &quot;desc&quot;: &quot;Gets an existing session using the key.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;TKey&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Session&lt;TKey, TData&gt;?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 295,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;load&quot;,
+            &quot;desc&quot;: &quot;Attempts to load the session with the given key.\n\nThe `onSessionLocked` parameter specifies what to do if the session is locked:\n\n- `\&quot;requestRelease\&quot;`: This will repeatedly try to load the session and also tells the server that locked\n\tthe session to release the session, saving all the data and removing the lock.\n\n- `\&quot;steal\&quot;`: This will steal the lock, overwriting the existing lock.\n\n:::caution Data Loss\n\nUsing `\&quot;steal\&quot;` might cause data loss because the other server has no chance to\nsave the data!\n\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The key to load&quot;,
+                    &quot;lua_type&quot;: &quot;TKey&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;onSessionLocked&quot;,
+                    &quot;desc&quot;: &quot;What to do if the session is locked&quot;,
+                    &quot;lua_type&quot;: &quot;(\&quot;requestRelease\&quot; | \&quot;steal\&quot;)?&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;default&quot;,
+                    &quot;desc&quot;: &quot;The default value to use, overwrites [StoreOptions.default]&quot;,
+                    &quot;lua_type&quot;: &quot;TData?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Promise&lt;Session&lt;TData, TKey&gt;&gt;&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;method&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 325,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [
+        {
+            &quot;name&quot;: &quot;defaultLockId&quot;,
+            &quot;desc&quot;: &quot;The default [Store.lockId].\nThis defaults to a random GUID such as `ff97f92b48a5472d96463ecf64c32866`.&quot;,
+            &quot;lua_type&quot;: &quot;string&quot;,
+            &quot;tags&quot;: [
+                &quot;static&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 53,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;datastore&quot;,
+            &quot;desc&quot;: &quot;The underlying data store used.&quot;,
+            &quot;lua_type&quot;: &quot;GlobalDataStore&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 60,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;lockId&quot;,
+            &quot;desc&quot;: &quot;A string that should be unique per server, this will be used for session locking.\nThis defaults to [Store.defaultLockId].&quot;,
+            &quot;lua_type&quot;: &quot;string&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 67,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;name&quot;,
+            &quot;desc&quot;: &quot;The name of the store.&quot;,
+            &quot;lua_type&quot;: &quot;string&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 73,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;sessions&quot;,
+            &quot;desc&quot;: &quot;The sessions that are loaded. The key is the [string key](Store#getKey) of the session.&quot;,
+            &quot;lua_type&quot;: &quot;{ [string]: Session&lt;TKey, TData&gt; }&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 79,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;sessionReleased&quot;,
+            &quot;desc&quot;: &quot;Fired whenever a session in the store has been released.\n\nThe [Session] that released is given as first parameter. The second parameter\nis a boolean containing whether the data was saved or not (see [Session.released]).\n\n```lua\nstore.sessionReleased:Connect(function(session, didSave)\n\tprint(`Session \&quot;{session.keyStr}\&quot; has been released! didSave: {didSave}`)\nend)\n```&quot;,
+            &quot;lua_type&quot;: &quot;Signal&lt;Session&lt;TKey, TData&gt;, boolean&gt;&quot;,
+            &quot;tags&quot;: [
+                &quot;Signal&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 95,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        }
+    ],
+    &quot;types&quot;: [
+        {
+            &quot;name&quot;: &quot;StoreOptions&lt;TKey, TData&gt;&quot;,
+            &quot;desc&quot;: &quot; \nThe options for the [Store]&quot;,
+            &quot;fields&quot;: [
+                {
+                    &quot;name&quot;: &quot;dataStore&quot;,
+                    &quot;lua_type&quot;: &quot;GlobalDataStore?&quot;,
+                    &quot;desc&quot;: &quot;The [GlobalDataStore] to use, defaults to the data store with the name of the store&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;lockId&quot;,
+                    &quot;lua_type&quot;: &quot;string?&quot;,
+                    &quot;desc&quot;: &quot;The ID to use for locking, this should be unique per server, defaults to [Store.defaultLockId]&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;lua_type&quot;: &quot;((key: TKey) -&gt; string)?&quot;,
+                    &quot;desc&quot;: &quot;A function that takes a key and returns a string key for the data store, this is not needed if the key is a string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;data&quot;,
+                    &quot;lua_type&quot;: &quot;(key: TKey) -&gt; TData&quot;,
+                    &quot;desc&quot;: &quot;A function that takes a key and returns the data to store in the data store&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;default&quot;,
+                    &quot;lua_type&quot;: &quot;(key: TKey) -&gt; TData&quot;,
+                    &quot;desc&quot;: &quot;A function that takes a key and returns the default data&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;metadata&quot;,
+                    &quot;lua_type&quot;: &quot;((key: TKey) -&gt; { [any]: any }?)?&quot;,
+                    &quot;desc&quot;: &quot;A function that takes a key and returns the [metadata](https://create.roblox.com/docs/scripting/data/data-stores#metadata)&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;userIds&quot;,
+                    &quot;lua_type&quot;: &quot;((key: TKey) -&gt; { number }?)?&quot;,
+                    &quot;desc&quot;: &quot;A function that takes a key and returns an array of user ids associated with the key&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;releaseSessionsOnClose&quot;,
+                    &quot;lua_type&quot;: &quot;boolean?&quot;,
+                    &quot;desc&quot;: &quot;Whether or not to release all sessions when the server closes, defaults to true&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;autosaveSeconds&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;,
+                    &quot;desc&quot;: &quot;How many seconds between autosave cycles, set to -1 to disable autosaves, defaults to 30&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 26,
+                &quot;path&quot;: &quot;lib/Store.luau&quot;
+            }
+        }
+    ],
+    &quot;name&quot;: &quot;Store&quot;,
+    &quot;desc&quot;: &quot;Stores a collection of data.&quot;,
+    &quot;source&quot;: {
+        &quot;line&quot;: 42,
+        &quot;path&quot;: &quot;lib/Store.luau&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#StoreOptions&lt;TKey, TData&gt;" class="table-of-contents__link toc-highlight">StoreOptions<tkey , tdata></tkey></a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#datastore" class="table-of-contents__link toc-highlight">datastore</a></li><li><a href="#defaultLockId" class="table-of-contents__link toc-highlight">defaultLockId</a></li><li><a href="#lockId" class="table-of-contents__link toc-highlight">lockId</a></li><li><a href="#name" class="table-of-contents__link toc-highlight">name</a></li><li><a href="#sessionReleased" class="table-of-contents__link toc-highlight">sessionReleased</a></li><li><a href="#sessions" class="table-of-contents__link toc-highlight">sessions</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#getData" class="table-of-contents__link toc-highlight">:getData</a></li><li><a href="#getDefault" class="table-of-contents__link toc-highlight">:getDefault</a></li><li><a href="#getKey" class="table-of-contents__link toc-highlight">:getKey</a></li><li><a href="#getMetadata" class="table-of-contents__link toc-highlight">:getMetadata</a></li><li><a href="#getSession" class="table-of-contents__link toc-highlight">:getSession</a></li><li><a href="#getUserIds" class="table-of-contents__link toc-highlight">:getUserIds</a></li><li><a href="#load" class="table-of-contents__link toc-highlight">:load</a></li><li><a href="#new" class="table-of-contents__link toc-highlight">.new</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 lukadev-0. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+<script src="/rbx-persist/assets/js/runtime~main.fa2573f6.js"></script>
+<script src="/rbx-persist/assets/js/main.fadea375.js"></script>
+</body>
+</html>

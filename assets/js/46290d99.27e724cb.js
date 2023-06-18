@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[134],{63891:s=>{s.exports=JSON.parse('{"sourceUrl":"https://github.com/lukadev-0/rbx-persist/blob/master","baseUrl":"/rbx-persist/","classOrder":["Persist"],"apiCategories":[]}')}}]);
