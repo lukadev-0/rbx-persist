@@ -1,0 +1,11 @@
+{
+  "name": "Persist Place",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Persist": {
+        "$path": "packaged.project.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+[package]
+name = "lukadev-0/persist"
+description = "Simple data store library"
+version = "0.1.0"
+license = "MIT"
+authors = ["LukaDev"]
+realm = "shared"
+registry = "https://github.com/upliftgames/wally-index"
+
+[dependencies]
+Promise = "lukadev-0/typed-promise@4.0.0"
+Signal = "sleitnick/signal@1.5.0"

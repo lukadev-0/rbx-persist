@@ -1,0 +1,21 @@
+title = "Persist"
+
+classOrder = ["Persist"]
+
+[docusaurus]
+tagline = "Simple data store library"
+
+[home]
+enabled = true
+
+[[home.features]]
+title = "Simple"
+description = "Persist has a simple API allowing you to easily save data in your game."
+
+[[home.features]]
+title = "Session locking"
+description = "Session locking reduces data loss by not allowing multiple servers to be able to write to the same data."
+
+[[home.features]]
+title = "Promises"
+description = "Persist uses promises for all of its asynchronous functions."
